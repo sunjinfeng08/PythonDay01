@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestBootStrapDatePicker</title>
+    <style>
+        .datepicker {
+            background-color: #f0f0f0;
+            color: #555;
+        }
+
+        .datepicker .active {
+            background-color: #428bca;
+            color: white;
+        }
+
+        .datepicker .today {
+            background-color: #e9e9e9;
+            color: #555;
+        }
+
+        .datepicker .disabled {
+            color: #ccc;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-timepicker/css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-timepicker/css/bootstrap-datepicker.min.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="form-group">
+        <label for="datepickerLable">自带 Date:</label>
+        <input type="date" id="datepicker1" class="form-control" placeholder="年-月-日">
+    </div>
+    <div class="form-group">
+        <label for="datepickerLable">BootstrapDatePicker Date:</label>
+        <input type="text" id="datepicker" class="form-control" placeholder="年-月-日">
+    </div>
+    <h4>选择年</h4>
+    <input type="text" id="example-datepicker-year" class="form-control" placeholder="年">
+    <h4>选择月</h4>
+    <input type="text" id="example-datepicker-month" class="form-control" placeholder="月">
+    <h4>选择日</h4>
+    <input type="text" id="example-datepicker-day" class="form-control" placeholder="日" data-date-format="dd">
+</div>
+
+<script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-timepicker/js/bootstrap-datepicker.js' %}"></script>
+<script type="text/javascript">
+    // 选择日期
+    jQuery('#datepicker').each(function () {
+
+        var $input = jQuery(this);
+        // 设置默认日期
+        var myDate = new Date;
+        var year = myDate.getFullYear(); //获取当前年
+        var month = myDate.getMonth() + 1; //获取当前月
+        var day = myDate.getDate(); //获取当前日
+        $('#datepicker').val(year + '-' + month + '-' + day);
+        $input.datepicker({
+            format: 'yyyy-mm-dd',
+            todayHighlight: true,
+            defaultViewDate: 'today',
+            language: 'zh-CN',
+            clearBtn: true,
+            autoclose: true,
+            {#startDate: '0',设置为当天之前的日期无法选择#}
+        });
+    });
+
+    // 单独选择年份
+    jQuery('#example-datepicker-year').each(function () {
+        var $input = jQuery(this);
+        $input.datepicker({
+            startView: 'decade',
+            endView: 'decade',
+            maxViewMode: 'decade',
+            minViewMode: 'decade',
+            weekStart: 1,
+            autoclose: true,
+            todayHighlight: true,
+            language: 'zh-CN',
+        });
+    });
+    // 单独选择月份
+    jQuery('#example-datepicker-month').each(function () {
+        var $input = jQuery(this);
+        $input.datepicker({
+            startView: 'month',
+            endView: 'month',
+            maxViewMode: 'year',
+            minViewMode: 'year',
+            weekStart: 1,
+            autoclose: true,
+            todayHighlight: true,
+            language: 'zh-CN',
+        });
+    });
+    // 单独选择日
+    jQuery('#example-datepicker-day').each(function () {
+        var $input = jQuery(this);
+        $input.datepicker({
+            todayHighlight: true,
+            defaultViewDate: 'today',
+            language: 'zh-CN',
+        });
+    });
+</script>
+</body>
+</html>

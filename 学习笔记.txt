@@ -1,0 +1,65 @@
+1,创建数据库表语句:
+    create database sun01 default charset utf8 collate utf8_general_ci;
+显示当前数据库下的所有数据库名字:
+    show databases;
+显示数据库表结构语句:
+    desc table_Name;
+2,数据库的配置文件:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'sun',
+            'USER': 'root',
+            'PASSWORD': 'Jsun',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
+3, 生成数据库表的命令：
+    python manage.py makemigrations
+    python manage.py migrate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
