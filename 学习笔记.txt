@@ -18,7 +18,7 @@
 3, 生成数据库表的命令：
     python manage.py makemigrations
     python manage.py migrate
-
+4, 测试本地目录上传到github远程仓库
 
 
 
