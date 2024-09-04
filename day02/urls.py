@@ -30,4 +30,5 @@ urlpatterns = [
     path('user/<int:userId>/user_delete/',views.user_delete),
 
     path('test/staticDirector/', views.teststaticDirector),
+    path('admin/listadmin/', views.admin_list),
 ]

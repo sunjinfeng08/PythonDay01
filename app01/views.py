@@ -189,3 +189,5 @@ def user_delete(request,userId):
 
 def teststaticDirector(request ):
     return render(request,'testStatic.html')
+def admin_list(request):
+    return render(request)

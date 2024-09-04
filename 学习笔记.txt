@@ -15,13 +15,10 @@
             'PORT': '3306',
         }
     }
-3, 生成数据库表的命令：
+3, 生成数据库表的命令：aaaaa
     python manage.py makemigrations
     python manage.py migrate
 4, 测试本地目录上传到github远程仓库
-
-
-
 5,继续测试提交
 
 
