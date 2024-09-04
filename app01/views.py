@@ -190,4 +190,5 @@ def user_delete(request,userId):
 def teststaticDirector(request ):
     return render(request,'testStatic.html')
 def admin_list(request):
-    return render(request)
+    queryAdminSet = models.Admin.objects.all()
+    return render(request,'adminlist.html',{'queryAdminSet':queryAdminSet})

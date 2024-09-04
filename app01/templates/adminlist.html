@@ -1,0 +1,46 @@
+{% extends 'layout_Template.html' %}
+{% block content %}
+<div>
+    <div class="container">
+        <div>
+            <a class="btn btn-success" href="/admin/listadmin/" target="_blank" >
+                <span class="glyphicon glyphicon-plus-sign " aria-hidden="true"></span>
+                管理员新增
+            </a>
+        </div>
+        <div class="bs-example" data-example-id="panel-without-body-with-table">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                    管理员列表
+                </div>
+                <!-- Table -->
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>用户名</th>
+                        <th>密码</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for adminValues in queryAdminSet %}
+                    <tr>
+                        <td>{{ adminValues.id }}</td>
+                        <td>{{ adminValues.username }}</td>
+                         <td>{{ adminValues.password }}</td>
+                        <td>
+                            <a class="btn btn-primary btn-xs" href="#" target="_blank">编辑</a>
+                            <a class="btn btn-danger btn-xs" href="#">删除</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
